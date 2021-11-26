@@ -3,8 +3,8 @@
 #include <GLFW/glfw3.h>
 #include <stb/stb_image.h>
 
-Texture::Texture(const std::string& filePath) 
-	: id(0), filePath(filePath), localBuffer(nullptr), width(0), height(0), bpp(0)
+Texture::Texture(const std::string& _filePath, const TextureType _type)
+	: id(0), filePath(_filePath), type(_type), localBuffer(nullptr), width(0), height(0), bpp(0)
 {
 	stbi_set_flip_vertically_on_load(1);
 	localBuffer = stbi_load(filePath.c_str(), &width, &height, &bpp, 4);
@@ -31,6 +31,13 @@ Texture::~Texture()
 void Texture::Bind(unsigned int slot) const
 {
 	glActiveTexture(GL_TEXTURE0 + slot);
+	glBindTexture(GL_TEXTURE_2D, id);
+}
+
+void Texture::Bind() const
+{
+	int textureType = static_cast<int>(type);
+	glActiveTexture(GL_TEXTURE0 + textureType);
 	glBindTexture(GL_TEXTURE_2D, id);
 }
 

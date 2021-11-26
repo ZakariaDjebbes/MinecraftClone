@@ -2,7 +2,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-IndexBuffer::IndexBuffer(const unsigned int* data, unsigned int size) : count(size / sizeof(unsigned int))
+IndexBuffer::IndexBuffer(const unsigned int* data, const unsigned int size) : count(size / sizeof(unsigned int))
 {
 	glGenBuffers(1, &id);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id);

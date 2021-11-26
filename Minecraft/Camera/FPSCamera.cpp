@@ -1,6 +1,5 @@
 #include "FPSCamera.h"
 #include <glm/gtc/matrix_transform.hpp>
-#include <iostream>
 
 FPSCamera::FPSCamera(float _fov, float _aspect, float _zNear, float _zFar) :
 	fov(_fov), aspect(_aspect), zNear(_zNear), zFar(_zFar)
@@ -108,6 +107,4 @@ void FPSCamera::RefreshView()
 void FPSCamera::RefreshProjection()
 {
 	projection = glm::perspective(glm::radians(fov), aspect, zNear, zFar);
-
-	std::cout << aspect << std::endl;
 }

@@ -1,7 +1,7 @@
 #include "Renderer.h"
 #include <iostream>
 
-void Renderer::Clear(float r, float g, float b, float a) const
+void Renderer::Clear(const float& r, const float& g, const float& b, const float& a) const
 {
 	glClearColor(r, g, b, a);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
