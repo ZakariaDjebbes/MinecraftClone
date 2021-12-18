@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClCompile Include="Camera\FPSCamera.cpp" />
     <ClCompile Include="Display\DisplayManager.cpp" />
+    <ClCompile Include="Objects\Mesh.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="include\glm\detail\glm.cpp" />
     <ClCompile Include="include\imgui\imgui.cpp" />
@@ -159,7 +160,6 @@
     <ClCompile Include="include\imgui\imgui_tables.cpp" />
     <ClCompile Include="include\imgui\imgui_widgets.cpp" />
     <ClCompile Include="include\stb\stb_image.cpp" />
-    <ClCompile Include="Models\Model.cpp" />
     <ClCompile Include="OpenGL\IndexBuffer.cpp" />
     <ClCompile Include="Program.cpp" />
     <ClCompile Include="Renderer\Renderer.cpp" />
@@ -171,6 +171,7 @@
   <ItemGroup>
     <ClInclude Include="Camera\FPSCamera.h" />
     <ClInclude Include="Display\DisplayManager.h" />
+    <ClInclude Include="Objects\Mesh.h" />
     <ClInclude Include="include\glad\glad.h" />
     <ClInclude Include="include\GLFW\glfw3.h" />
     <ClInclude Include="include\GLFW\glfw3native.h" />
@@ -466,7 +467,6 @@
     <ClInclude Include="include\imgui\imstb_truetype.h" />
     <ClInclude Include="include\KHR\khrplatform.h" />
     <ClInclude Include="include\stb\stb_image.h" />
-    <ClInclude Include="Models\Model.h" />
     <ClInclude Include="OpenGL\IndexBuffer.h" />
     <ClInclude Include="Renderer\Renderer.h" />
     <ClInclude Include="OpenGL\VertexBuffer.h" />

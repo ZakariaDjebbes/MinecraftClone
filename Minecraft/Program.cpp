@@ -124,6 +124,36 @@ int main()
 		glm::vec3 scale(1.0f);
 		glm::mat4 model(1.0f);
 
+		shader.Use();
+		texture.Bind();
+		specular.Bind();
+		shader.setMatrix4f("view", camera.GetView());
+		shader.setMatrix4f("proj", camera.GetProjection());
+		shader.SetVector3f("viewPos", camera.GetPosition());
+
+		//DIRECTIONAL LIGHT
+		shader.SetVector3f("dirLight.direction", -0.2f, -1.0f, -0.3f);
+		shader.SetVector3f("dirLight.ambient", 0.05f, 0.05f, 0.05f);
+		shader.SetVector3f("dirLight.diffuse", 0.4f, 0.4f, 0.4f);
+		shader.SetVector3f("dirLight.specular", 0.5f, 0.5f, 0.5f);
+
+		//POINT LIGHT
+		shader.SetVector3f("pointLight.position", lightPos);
+		shader.SetFloat("pointLight.constant", 1.0f);
+		shader.SetFloat("pointLight.linear", 0.09f);
+		shader.SetFloat("pointLight.quadratic", 0.032f);
+		shader.SetVector3f("pointLight.ambient", 0.05f, 0.05f, 0.05f);
+		shader.SetVector3f("pointLight.diffuse", 0.8f, 0.8f, 0.8f);
+		shader.SetVector3f("pointLight.specular", 1.0f, 1.0f, 1.0f);
+
+		//shader.SetFloat("light.cutOff", glm::cos(glm::radians(12.5f)));
+		//shader.SetFloat("light.outerCutOff", glm::cos(glm::radians(17.5f)));
+
+		//Material
+		shader.SetFloat("material.shininess", 32.0f);
+		shader.SetInteger("material.diffuse", 0);
+		shader.SetInteger("material.specular", 1);
+
 		for (int i = 0; i < std::size(positions); i++)
 		{
 			model = glm::mat4(1.0f);
@@ -131,37 +161,8 @@ int main()
 			float angle = 0.0f + (i * 20);
 			model = glm::rotate(model, glm::radians(angle), rotation);
 			model = glm::scale(model, scale);
-
-			shader.Use();
-			texture.Bind();
-			specular.Bind();
 			shader.setMatrix4f("model", model);
-			shader.setMatrix4f("view", camera.GetView());
-			shader.setMatrix4f("proj", camera.GetProjection());
-			shader.SetVector3f("viewPos", camera.GetPosition());
 
-			//DIRECTIONAL LIGHT
-			shader.SetVector3f("dirLight.direction", -0.2f, -1.0f, -0.3f);
-			shader.SetVector3f("dirLight.ambient", 0.05f, 0.05f, 0.05f);
-			shader.SetVector3f("dirLight.diffuse", 0.4f, 0.4f, 0.4f);
-			shader.SetVector3f("dirLight.specular", 0.5f, 0.5f, 0.5f);
-
-			//POINT LIGHT
-			shader.SetVector3f("pointLight.position", lightPos);
-			shader.SetFloat("pointLight.constant", 1.0f);
-			shader.SetFloat("pointLight.linear", 0.09f);
-			shader.SetFloat("pointLight.quadratic", 0.032f);
-			shader.SetVector3f("pointLight.ambient", 0.05f, 0.05f, 0.05f);
-			shader.SetVector3f("pointLight.diffuse", 0.8f, 0.8f, 0.8f);
-			shader.SetVector3f("pointLight.specular", 1.0f, 1.0f, 1.0f);
-
-			//shader.SetFloat("light.cutOff", glm::cos(glm::radians(12.5f)));
-			//shader.SetFloat("light.outerCutOff", glm::cos(glm::radians(17.5f)));
-
-			//Material
-			shader.SetFloat("material.shininess", 32.0f);
-			shader.SetInteger("material.diffuse", 0);
-			shader.SetInteger("material.specular", 1);
 			renderer.Draw(va, shader, 36);
 		}
 

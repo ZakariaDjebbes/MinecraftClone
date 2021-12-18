@@ -72,7 +72,7 @@
     <ClCompile Include="Camera\FPSCamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Models\Model.cpp">
+    <ClCompile Include="Objects\Mesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -986,7 +986,7 @@
     <ClInclude Include="Camera\FPSCamera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Models\Model.h">
+    <ClInclude Include="Objects\Mesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
