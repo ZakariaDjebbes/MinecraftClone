@@ -2,7 +2,6 @@
 
 struct DirectionalLight {
     vec3 direction;
-  
     vec3 ambient;
     vec3 diffuse;
     vec3 specular;
@@ -35,6 +34,7 @@ uniform vec3 viewPos;
 
 in vec3 normal;
 in vec3 fragPos;  
+in vec3 color;
 in vec2 texCoords;
 
 vec3 CalculateDirectionalLight(DirectionalLight light, vec3 normal, vec3 viewDir);  

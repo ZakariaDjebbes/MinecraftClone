@@ -9,14 +9,14 @@ void Renderer::Clear(const float& r, const float& g, const float& b, const float
 
 void Renderer::Draw(const VertexArray& va, const IndexBuffer& ib, const Shader& shader) const
 {
-	shader.Use();
 	va.Bind();
+	shader.Use();
 	ib.Bind();
 
 	glDrawElements(GL_TRIANGLES, ib.GetCount(), GL_UNSIGNED_INT, nullptr);
 }
 
-void Renderer::Draw(const VertexArray& va, const Shader& shader, const int count) const
+void Renderer::DrawArray(const VertexArray& va, const Shader& shader, const int count) const
 {
 	va.Bind();
 	shader.Use();
